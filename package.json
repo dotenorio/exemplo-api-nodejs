@@ -1,0 +1,8 @@
+
+{
+  "name": "exemplo-api-node",
+  "description": "Um exemplo de API utilizando NodeJS",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {}
+}
