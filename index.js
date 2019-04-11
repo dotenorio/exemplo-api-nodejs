@@ -1,9 +1,16 @@
 const http = require('http')
+const path = require('path')
+const url = require('url')
+
 const port = 8000
 const host = 'localhost'
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/') {
+  const { pathname, query } = url.parse(req.url, true)
+  req.pathname = pathname
+  req.query = query
+
+  if (req.pathname === '/') {
     res.writeHead(200, { 'Content-Type': 'text/html' })
     res.write(`
       <h1>Rotas:</h1>
@@ -17,13 +24,30 @@ const server = http.createServer((req, res) => {
     res.end()
   }
 
-  require('./rotas/excluir')(req, res)
-  require('./rotas/ler')(req, res)
-  require('./rotas/atualizar')(req, res)
-  require('./rotas/criar')(req, res)
+  req.on('error', (err) => {
+    res.writeHead(500, { 'Content-Type': 'text/html; charset=UTF-8' })
+    res.end(err)
+  })
 
-  res.writeHead(404, { 'Content-Type': 'text/plain' })
-  res.end(`Cannot ${req.method} ${req.url}`)
+  req.body = []
+
+  req.on('data', (chunk) => {
+    req.body.push(chunk)
+  })
+
+  req.on('end', () => {
+    try {
+      req.body = JSON.parse(Buffer.concat(req.body).toString())
+    } catch (e) {}
+
+    try {
+      require(path.join(__dirname, req.pathname))(req, res)
+    } catch (e) {
+      console.log(e)
+      res.writeHead(404, { 'Content-Type': 'text/html; charset=UTF-8' })
+      res.end(`Cannot ${req.method} ${req.url}`)
+    }
+  })
 })
 
 server.listen(port, host, () => {

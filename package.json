@@ -1,8 +1,12 @@
-
 {
   "name": "exemplo-api-node",
   "description": "Um exemplo de API utilizando NodeJS",
   "version": "1.0.0",
-  "dependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "mysql": "^2.16.0"
+  },
   "devDependencies": {}
 }

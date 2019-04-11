@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "e7812518-1ec5-4cdf-be05-b3266cddaa40",
+		"name": "NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/rotas/criar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fernando Migliorini Tenório\",\n\t\"email\": \"dotenorio@gmail.com\",\n\t\"password\": \"123456\",\n\t\"bio\": \"Estou na área de TI há mais de 10 anos, sempre trabalhei com tecnologias web. No momento, atuo como engenheiro, procurando formas de tornar a empresa melhor.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/rotas/criar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"rotas",
+						"criar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rotas/ler",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/rotas/ler",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"rotas",
+						"ler"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rotas/ler?id=:id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/rotas/ler?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"rotas",
+						"ler"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rotas/excluir?id=:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8000/rotas/excluir?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"rotas",
+						"excluir"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/rotas/atualizar?id=:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Fernando Migliorini Tenório!\",\n\t\"email\": \"dotenorio@gmail.com\",\n\t\"password\": \"123456\",\n\t\"bio\": \"Estou na área de TI há mais de 10 anos, sempre trabalhei com tecnologias web. No momento, atuo como engenheiro, procurando formas de tornar a empresa melhor.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/rotas/atualizar?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"rotas",
+						"atualizar"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
