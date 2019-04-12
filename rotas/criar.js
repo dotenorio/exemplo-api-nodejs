@@ -26,7 +26,7 @@ module.exports = (req, res) => {
   let options = [
     req.body.name,
     req.body.email,
-    crypto.createHmac('sha256', req.body.password).digest('hex'),
+    crypto.createHmac('sha256', 'benchmark').update(req.body.password).digest('hex'),
     req.body.bio
   ]
 
