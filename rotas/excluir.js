@@ -20,8 +20,7 @@ module.exports = (req, res) => {
   let sql = `
     DELETE
     FROM users
-    WHERE id=?
-    LIMIT 1000
+    WHERE id = ?
     `
   let options = [req.query.id]
 
